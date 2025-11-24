@@ -2,6 +2,7 @@ package com.controladordeestoque.service;
 
 import com.controladordeestoque.domain.Categoria;
 import com.controladordeestoque.repository.CategoriaRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +30,12 @@ public class CategoriaService {
     }
 
     public void excluir(Long id) {
-        categoriaRepository.deleteById(id);
+        try {
+            categoriaRepository.deleteById(id);
+        } catch (DataIntegrityViolationException ex) {
+            // categoria relacionada a produtos não pode ser removida
+            throw new IllegalArgumentException("Não é possível excluir a categoria pois existem produtos vinculados.");
+        }
     }
 
     @Transactional(readOnly = true)
