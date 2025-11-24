@@ -1,6 +1,7 @@
 package com.controladordeestoque.service;
 
 import com.controladordeestoque.domain.Produto;
+import com.controladordeestoque.repository.MovimentacaoRepository;
 import com.controladordeestoque.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,9 +14,12 @@ import java.util.List;
 @Transactional
 public class ProdutoService {
     private final ProdutoRepository produtoRepository;
+    private final MovimentacaoRepository movimentacaoRepository;
 
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    public ProdutoService(ProdutoRepository produtoRepository,
+                          MovimentacaoRepository movimentacaoRepository) {
         this.produtoRepository = produtoRepository;
+        this.movimentacaoRepository = movimentacaoRepository;
     }
 
     public Produto criar(Produto produto) {
@@ -35,7 +39,13 @@ public class ProdutoService {
     }
 
     public void excluir(Long id) {
-        produtoRepository.deleteById(id);
+        Produto produto = buscarPorId(id);
+        if (produto.getQuantidade() != null && produto.getQuantidade() > 0) {
+            throw new IllegalArgumentException("Não é possível excluir um produto com quantidade em estoque.");
+        }
+
+        movimentacaoRepository.deleteByProdutoId(id);
+        produtoRepository.delete(produto);
     }
 
     @Transactional(readOnly = true)

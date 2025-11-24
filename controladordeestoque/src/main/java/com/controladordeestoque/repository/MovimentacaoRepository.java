@@ -20,4 +20,6 @@ public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long
 
     // Lista ordenada por data (mais recentes primeiro), com paginação para limitar quantidade
     Page<Movimentacao> findAllByOrderByDataMovimentacaoDesc(Pageable pageable);
+
+    void deleteByProdutoId(Long produtoId);
 }
