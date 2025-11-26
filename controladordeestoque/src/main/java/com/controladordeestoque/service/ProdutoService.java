@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
+/**
+ * Regra de negócio para cadastro, atualização, exclusão e reajuste de preços de produtos.
+ */
 @Service
 @Transactional
 public class ProdutoService {

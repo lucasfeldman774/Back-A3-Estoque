@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+/**
+ * Entidade que agrupa produtos por tamanho e tipo de embalagem.
+ */
 @Entity
 public class Categoria {
     @Id

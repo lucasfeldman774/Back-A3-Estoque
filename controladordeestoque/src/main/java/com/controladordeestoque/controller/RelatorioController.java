@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller REST para exposição dos relatórios de estoque.
+ */
 @RestController
 @RequestMapping("/relatorios")
 public class RelatorioController {

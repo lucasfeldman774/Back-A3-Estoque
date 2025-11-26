@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
+/**
+ * Entidade que registra as entradas e saídas de produtos do estoque.
+ */
 @Entity
 public class Movimentacao {
     @Id

@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Regra de negócio para registrar movimentações e gerar relatórios básicos de movimentação.
+ */
 @Service
 @Transactional
 public class MovimentacaoService {

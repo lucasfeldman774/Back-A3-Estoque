@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Controller REST para operações de CRUD e reajuste de preços de produtos.
+ */
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {

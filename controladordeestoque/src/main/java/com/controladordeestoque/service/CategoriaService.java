@@ -2,12 +2,16 @@ package com.controladordeestoque.service;
 
 import com.controladordeestoque.domain.Categoria;
 import com.controladordeestoque.repository.CategoriaRepository;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Regra de negócio para manutenção de categorias de produtos.
+ */
 @Service
 @Transactional
 public class CategoriaService {

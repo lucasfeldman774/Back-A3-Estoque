@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * Controller REST para cadastro e manutenção de categorias de produtos.
+ */
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaController {

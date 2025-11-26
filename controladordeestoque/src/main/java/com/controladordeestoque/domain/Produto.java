@@ -5,6 +5,9 @@ import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Entidade que representa um produto controlado pelo estoque.
+ */
 @Entity
 public class Produto {
     @Id

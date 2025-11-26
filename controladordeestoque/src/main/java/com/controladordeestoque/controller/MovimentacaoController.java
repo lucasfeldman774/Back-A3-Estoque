@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controller REST para registrar movimentações e consultar relatórios de movimentação.
+ */
 @RestController
 @RequestMapping("/movimentacoes")
 public class MovimentacaoController {
